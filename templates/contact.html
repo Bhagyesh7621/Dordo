@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+        <!-- Start Contact Area -->
+        <section class="contact-info-area pt-70 pb-40">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-contact-info-box">
+                            <div class="icon">
+                                <i class="flaticon-placeholder"></i>
+                            </div>
+                            <h3>Address📌</h3>
+                            <p><a href="#" target="_blank">6890 Blvd, The Bronx, NY 1058, USA</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-contact-info-box">
+                            <div class="icon">
+                                <i class="flaticon-phone-ringing"></i>
+                            </div>
+                            <h3>Phone📞</h3>
+                            <p><a href="tel:98764321">Hotline: 007</a></p>
+                            <p><a href="tel:+91 987654321">Tech support: (+91) 987654321</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-contact-info-box">
+                            <div class="icon">
+                                <i class="flaticon-email"></i>
+                            </div>
+                            <h3>Email📧</h3>
+                            <p><a href="https://templates.envytheme.com/cdn-cgi/l/email-protection#5a323f3636351a3e28353e3574393537"><span class="__cf_email__" data-cfemail="6109040d0d0e2105130e050e4f020e0c">[email&#160;protected]</span></a></p>
+                            <p><a href="#">Skype: hello.Drodo</a></p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-sm-6 col-md-6">
+                        <div class="single-contact-info-box">
+                            <div class="icon">
+                                <i class="flaticon-clock"></i>
+                            </div>
+                            <h3>Working Hours⏳</h3>
+                            <p>24/7  Hours</p>
+                            <p>365 Days✨</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="contact-area pb-70">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-12">
+                        <div class="contact-form">
+                            <span class="sub-title">Get In Touch</span>
+                            <h2>We want to provide you with a great experience👍</h2>
+                            <form id="contactForm">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Full Name</label>
+                                            <input type="text" name="name" class="form-control" id="name" required data-error="Please enter your name">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="email" name="email" class="form-control" id="email" required data-error="Please enter your email">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Mobile No.</label>
+                                            <input type="text" name="phone_number" class="form-control" id="phone_number" required data-error="Please enter your phone number">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="form-group">
+                                            <label>Subject</label>
+                                            <input type="text" name="subject" class="form-control" id="subject">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div class="form-group">
+                                            <label>Message</label>
+                                            <textarea name="message" id="message" class="form-control" cols="30" rows="6" required data-error="Please enter your message"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <button type="submit" class="default-btn">Send Message</button>
+                                        <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-12">
+                        <div class="contact-image text-center">
+                            <img src="{% static 'assets/img/contact.png' %}" alt="image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="maps">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d46660.669043361966!2d-76.17429939609431!3d43.03529129888566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d9f3b8019f2991%3A0x58d5929e21a62e5!2sDinosaur%20Bar-B-Que!5e0!3m2!1sen!2sbd!4v1593527523138!5m2!1sen!2sbd"></iframe>
+        </div>
+        <!-- End Contact Area -->
+
+
+
+    
+{% endblock body %}
+
+
+
+
+
+
+    

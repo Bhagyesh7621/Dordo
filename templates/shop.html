@@ -1,0 +1,218 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<!-- Start Page Title Area -->
+<section class="page-title-area">
+    <div class="container">
+        <div class="page-title-content">
+            <h1>Products</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>shop</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- End Page Title Area -->
+
+ <!-- Start Products Area -->
+ <section class="products-area ptb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-12">
+                <div class="woocommerce-widget-area">
+                    <div class="woocommerce-widget price-list-widget">
+                        <h3 class="woocommerce-widget-title">Filter By Price</h3>
+
+                        <!-- <div class="collection-filter-by-price">
+                            <input class="js-range-of-price" type="text" data-min="0" data-max="1055" name="filter_by_price" data-step="10">
+                        </div> -->
+                    </div>
+
+                    
+
+                    <!-- <div class="woocommerce-widget brands-list-widget">
+                        <h3 class="woocommerce-widget-title">Brands</h3>
+
+                        <ul class="brands-list-row">
+                            <li><a href="#">Gucci</a></li>
+                            <li><a href="#">Virgil Abloh</a></li>
+                            <li><a href="#">Balenciaga</a></li>
+                            <li class="active"><a href="#">Moncler</a></li>
+                            <li><a href="#">Fendi</a></li>
+                            <li><a href="#">Versace</a></li>
+                        </ul>
+                    </div> -->
+
+                    <div class="woocommerce-widget woocommerce-ads-widget">
+                        <img src="{% static 'assets/img/ads.jpg' %}" alt="image">
+
+                        <div class="content">
+                            <span>New Arrivals</span>
+                            <h3>Modern Electronic Thermometer</h3>
+                            <a href="#" class="default-btn"><i class="flaticon-trolley"></i> Shop Now</a>
+                        </div>
+
+                        <a href="#" class="link-btn"></a>
+                    </div>
+
+                    <div class="woocommerce-widget best-seller-widget">
+                        <h3 class="woocommerce-widget-title">Best Seller</h3>
+
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover bg1" role="img"></span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall"><a href="#">Thermometer Gun</a></h4>
+                                <span>₹1499.00</span>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover bg2" role="img"></span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall"><a href="#">Protective Gloves</a></h4>
+                                <span>₹65.00</span>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star-half'></i>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+
+                        <article class="item">
+                            <a href="#" class="thumb">
+                                <span class="fullimage cover bg3" role="img"></span>
+                            </a>
+                            <div class="info">
+                                <h4 class="title usmall"><a href="#">Cosmetic Container</a></h4>
+                                <span>₹139.00</span>
+                                <div class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bx-star'></i>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9 col-md-12">
+                <div class="drodo-grid-sorting row align-items-center">
+                    <div class="col-lg-6 col-md-6 result-count">
+                        <p>We found <span class="count">99</span> products available for you</p>
+
+                        <span class="sub-title d-lg-none"><a href="#" data-bs-toggle="modal" data-bs-target="#productsFilterModal"><i class='bx bx-filter-alt'></i> Filter</a></span>
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 ordering">
+                        <div class="select-box">
+                            <label>Sort By:</label>
+                            <select>
+                                <option>Default</option>
+                                <option>Popularity</option>
+                                <option>Latest</option>
+                                <option>Price: low to high</option>
+                                <option>Price: high to low</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    {% for i in data %}
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="single-products-box">
+                            <div class="image">
+                                       
+                                <a href="/productinfo/{{i.id}}/" class="d-block"> 
+                                <img src="{{i.image.url}}" alt="image"></a>
+                                
+                                <div class="buttons-list">
+                                    
+                                    <ul>
+                                        <li>
+                                            <div class="cart-btn">
+                                                <a href="/addtocart/{{i.id}}/">
+                                                    <i class='bx bxs-cart-add'></i>
+                                                    <span class="tooltip-label">Add to Cart</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="wishlist-btn">
+                                                <a href="/addtowishlist/{{i.id}}/">
+                                                    <i class='bx bx-heart'></i>
+                                                    <span class="tooltip-label">Add to Wishlist</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="quick-view-btn">
+                                                <a href="/productinfo/{{i.id}}/"  data-bs-target="#productsQuickView">
+                                                    <i class='bx bx-search-alt'></i>
+                                                    <span class="tooltip-label">Quick View</span>
+                                                </a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="content">
+                                <h6><a href="/productinfo/{{i.id}}/">{{i.name}}</a></h6>
+                                <div class="price">
+                                    <span class="new-price">₹{{i.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+  
+
+                    
+                    {% endfor %}
+                    
+                   
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area text-center">
+                            <a href="#" class="prev page-numbers"><i class='bx bx-chevrons-left'></i></a>
+                            <span class="page-numbers current" aria-current="page">1</span>
+                            <a href="#" class="page-numbers">2</a>
+                            <a href="#" class="page-numbers">3</a>
+                            <a href="#" class="page-numbers">4</a>
+                            <a href="#" class="next page-numbers"><i class='bx bx-chevrons-right'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Products Area -->
+
+ 
+
+
+{% endblock body %}

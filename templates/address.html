@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Address
+{% endblock title %}
+
+
+{% block body %}
+
+<div class="container-fluid p-3" align="right">
+    <div class="row" >
+        <div class="col-sm-12 m-0 p-0 ">
+            <h2 class="display-4 p-1 border text-center text-light bg-secondary">Address</h2>
+        </div>
+    </div>
+    <div class="row  ">
+        <div class=" col-lg-12" align="center">
+           
+            <div class=" col-lg-12  ">
+
+                <form method='POST' novalidate>
+                    {% csrf_token %}
+                    <div class="form-row">
+                        {% for fm in form %}
+                        <div class="col-6" align="left">
+                            <label >{{fm.label_tag}}</label>
+                            {{fm}}
+
+                        </div>
+                        {% endfor %}
+                        <div class=" col-4 mt-3">
+                            <button type="submit" class="btn btn-block btn-primary"><i class="fas fa-plus-circle"></i>
+                                Add Address</button>
+                            <a href="/checkout/" <button class="btn btn-block btn-info" type="submit">Checkout</button></a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+        </div>
+
+        <hr>
+        <div class="container-fluid">
+            <div class="row mt-5  ">
+                <div class="col-sm-12">
+                    <h3><strong>Your Address</strong></h3>
+                </div>
+
+                
+                {% for add in all_address %}
+                    
+                
+                    
+                <div class="col-sm-12 p-2 ">
+                    <div class="card">
+                        <div class="card-header">
+                            Address - {{forloop.counter}}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{add.fname}}, {{add.lname}}, {{add.email}}, {{add.mobile}},{{add.counrty}},{{add.state}},{{add.city}},{{add.pincode}},{{add.add1}},{{add.add2}}</h5>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
+                            </p>
+                            <a href="/Addressupdate/{{add.id}}/" class="btn btn-success"><i class="far fa-edit"></i></a>
+                            <a href="/Addressdelete/{{add.id}}/" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+    {% endblock body %}

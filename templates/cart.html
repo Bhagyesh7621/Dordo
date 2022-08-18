@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Cart  
+{% endblock title %}
+
+
+{% block body %}
+        <div class="container-fluid p-3">
+            <div class="row">
+                <div class="col-sm-12 m-0 p-0">
+                    <h2 class="display-4 p-1 border text-center bg -secondary">Cart</h2>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-sm-12 table-responcive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Prices</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                       {% for i in cart_items %}
+                       <tr>
+                           <td><a class="btn" href="/Delete/{{i.id}}">
+                            <h4>⚔️</h4></a>
+                           </td>
+                        <th>
+                            <img style="height: 80px;" src="{{i.product.image.url}}" alt="image">
+                        </th>
+                        <td>{{i.product.name}}</td>
+                        <td>{{i.product.price}}</td>
+                        <td>
+                            <a class="text-dark mr-2" href="/minuscart/{{i.id}}"> ➖
+                        </a>
+                            {{i.quantity}}
+                            <a class="text-dark mr-2" href="/pluscart/{{i.id}}"> ➕</a>
+                        </td>
+                        <td>{{i.prod_total}}</td>
+                        {% empty %}
+                        <td colspan="6">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'cart1.jpg' %}" alt="">
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-warning" href="/allproducts/">Shop Now</a>
+                            </div>
+                        </td>
+                       </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12 p-2 text-center">
+                <a href="/clearcart/" class="btn btn-lg brn-danger ml-2" type="submit">Clear Cart</a>
+            </div>
+        </div>
+
+<br>
+
+<div class="row" style="margin-left: 28rem;">
+    <div class="col ">
+      <table>
+        <tbody>
+          <tr>
+            <td><strong class="">Total Amount:</strong>
+            <td class="text-right">{{sub_total}}</td>
+            </td>
+          </tr>
+          <tr>
+            <td><strong class="">Shipping Amount:</strong>
+            <td class="text-right">{{ship_charge}}</td>
+            </td>
+          </tr>
+          <tr>
+            <td><strong class="">GST </strong>
+            <td class="text-right">{{GST}}</td>
+            </td>
+          </tr>
+          <tr>
+            <td><strong class="">Payable Amount:</strong>
+            <td class="text-right"><strong>{{grand_total}}</strong></td>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+    </div>
+  </div>
+<br>
+<div class="col mt-3" align="center">
+    <a href="/checkout/" class="btn btn-block btn-info" type="submit">Place order</a>
+  </div>
+
+{% endblock body %}
+    

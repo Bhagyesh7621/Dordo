@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+WishList
+{% endblock title %}
+
+
+{% block body %}
+        <div class="container-fluid p-3">
+            <div class="row">
+                <div class="col-sm-12 m-0 p-0">
+                    <h2 class="display-4 p-1 border text-center bg -secondary">WishList</h2>
+                </div>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col-sm-12 table-responcive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Delete</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Prices</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                       {% for i in wishlist_items %}
+                       <tr>
+                           <td><a class="btn" href="/Listdelete/{{i.id}}"></a>
+                            <h4>❌</h4></a>
+                           </td>
+                        <th>
+                            <img style="height: 80px;" src="{{i.product.image.url}}" alt="image">
+                        </th>
+                        <td>{{i.product.name}}</td>
+                        <td>{{i.product.price}}</td>
+                        
+                        </td>
+                        <td>
+                            <a href="/addtocart/{{i.product.id}}/">
+                                <i class='bx bxs-cart-add'></i>
+                                <span class="tooltip-label">Add to Cart</span>
+                            </a>
+                        </td>
+                        {% empty %}
+                        <td colspan="6">
+                            <div class="d-flex justify-content-center">
+                                <img src="{% static 'cart1.jpg' %}" alt="">
+                               
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <a class="btn btn-warning" href="/shop/">Shop Now</a>
+                            </div>
+                        </td>
+                       </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 p-2 text-center">
+                <a href="/shop/" class="btn btn-lg brn-danger ml-2" type="submit">Add Items</a>
+            </div>
+        </div>
+
+      
+
+
+<br>
+
+{% endblock body %}
+    

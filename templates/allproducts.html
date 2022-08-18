@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Allproducts
+{% endblock title %}
+    
+
+
+
+{% block body %}
+<div class="container-fluid p-3">
+<div class="row">
+    <div class="col-sm-3">
+        <div class="list-group">
+            <a href="/allproducts/" class="list-group-item list-group-item-action bg-secondary text-light">
+                <strong>All Products</strong>
+            </a>
+            {% for cats in all_categories %}
+                
+                <form action="">
+                    <input type="text" hidden name="catesid" value="{{cats.id}}" id="">
+                    <button type="submit" class="list-group-item list-group-item-action">{{cats.name}}</button>
+                </form>
+                {% endfor %}
+        </div>
+    </div>
+    <div class="col-lg-15 col-sm-9">
+        <div class="row ">
+            <div class="col-sm-1 bg-secondary p-" style="border-radius: 19px;">
+                <form action="">
+                    <!-- <div class="row">
+                        <div class="col-lg-1 col-sm-1 mt-15">
+                            <div class="form-group">
+                                <select class="form-control" name="catename">
+                                    
+                                    {% for cats in all_categories  %}
+                                        <option>{{cats}}</option>
+                                    {% endfor %}
+                                        
+                                </select>
+                            </div>
+                        </div> 
+                            <div class="col-lg-2 col-sm-12 mt-3">
+                            <div class="form-group">
+                               <input class="form-control" placeholder="From Price" type="number" name="startprice" id="">
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-sm-12 mt-3">
+                            <div class="form-group">
+                               <input class="form-control" type="number" placeholder="To Price" name="endprice" id="">
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-12 mt-3">
+                                <div class="form-group">
+                                <input type="text" name="pordname" placeholder="Product name" class="form-control" id="exampleInputPassword1">
+                            </div>
+                        </div>
+                        <div class="col-lg-1 col-sm-12 mt-3">
+                            <div class="form-group">
+                                <button class="btn btn-warning" type="submit"><i class="fas fa-filter"></i></button>
+                            </div>  
+                    </div> -->
+                </form>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            {% for i in all_products %}
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="single-products-box">
+                    <div class="image">
+                               
+                        <a href="/productinfo/{{i.id}}/" class="d-block"> 
+                        <img src="{{i.image.url}}" alt="image"></a>
+                        
+                        <div class="buttons-list">
+                            
+                            <ul>
+                                <li>
+                                    <div class="cart-btn">
+                                        <a href="/addtocart/{{i.id}}/">
+                                            <i class='bx bxs-cart-add'></i>
+                                            <span class="tooltip-label">Add to Cart</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="wishlist-btn">
+                                        <a href="/addtowishlist/{{i.id}}/">
+                                            <i class='bx bx-heart'></i>
+                                            <span class="tooltip-label">Add to Wishlist</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="quick-view-btn">
+                                        <a href="/productinfo/{{i.id}}/"  data-bs-target="#productsQuickView">
+                                            <i class='bx bx-search-alt'></i>
+                                            <span class="tooltip-label">Quick View</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <h6><a href="/productinfo/{{i.id}}/">{{i.name}}</a></h6>
+                        <div class="price">
+                            <span class="new-price">₹{{i.price}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            {% endfor %}
+            
+           
+
+            <div class="col-lg-12 col-md-12">
+                <div class="pagination-area text-center">
+                    <a href="#" class="prev page-numbers"><i class='bx bx-chevrons-left'></i></a>
+                    <span class="page-numbers current" aria-current="page">1</span>
+                    <a href="#" class="page-numbers">2</a>
+                    <a href="#" class="page-numbers">3</a>
+                    <a href="#" class="page-numbers">4</a>
+                    <a href="#" class="next page-numbers"><i class='bx bx-chevrons-right'></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            {% for prod in all_products %}
+            <div class="col-lg-5 col-sm-12  p-2  ">
+                <div class="card" >
+                    <a href="/proinfo/{{prod.id}}">
+                    <img style="height: 300px;" src="{{prod.image.url}}" class="card-img-top p-3 border" alt="...">
+                </a>
+                    <div class="card-body ">
+                        <h5 class="card-title">{{prod.name}} </h5>
+                        <p class="card-text text-center">
+                            <div class="row">
+                                <h5 class="ml-2"><strong>₹{{prod.price}}</strong></h5>
+                                  </div>
+                            
+                        </p>
+                        <a href="/addtocart/{{prod.id}}/" class="btn btn-block btn-warning"><h5><i class="fas fa-cart-plus"></i> Add to cart</h5></a>
+                    </div>
+               
+                </div>
+            </div>
+            {% endfor %}
+        </div> -->
+    </div>
+</div>
+</div>
+    
+
+{% endblock body %}
+    
